@@ -6,12 +6,23 @@ struct Rectangle {
 
 impl Rectangle {
     // the area function is associated w/ Rectangle now
+    // &self is always the 1st parameter
     fn area(&self) -> u32 {
         self.width * self.height
     }
 
     fn can_hold(&self, other: &Rectangle) -> bool {
         self.width > other.width && self.height > other.height
+    }
+}
+
+// Can have multiple implementation blocks for our structs!
+impl Rectangle {
+    fn square(size: u32) -> Rectangle {
+        Rectangle {
+            width: size,
+            height: size,
+        }
     }
 }
 
